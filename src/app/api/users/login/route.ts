@@ -31,7 +31,7 @@ export const POST = async (request: NextRequest) => {
     });
 
     const response = NextResponse.json(
-      { message: "Login successfully", token : token },
+      { message: "Login successfully", success: true },
       { status: 201 }
     );
 
@@ -40,7 +40,7 @@ export const POST = async (request: NextRequest) => {
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 1000, // 1 day
     });
-    
+
     return response;
   } catch (error: any) {
     return NextResponse.json({ message: error.message }, { status: 500 });
